@@ -12,6 +12,7 @@
                 "-Iinclude",
                 "src/main.c",
                 "src/queue.c",
+                "src/stack.c",
                 "-o",
                 "src/output/main"
             ],

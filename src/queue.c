@@ -9,16 +9,16 @@ void init_queue(Queue *q) {
     q->tail = 0;
 }
 
-int is_empty(Queue *q) {
+int queue_is_empty(Queue *q) {
     return q->head == q->tail;
 }
 
-int is_full(Queue *q) {
+int queue_is_full(Queue *q) {
     return q->tail == QUEUE_SIZE;
 }
 
 void enqueue(Queue *q, int value) {
-    if (is_full(q)) {
+    if (queue_is_full(q)) {
         printf("Queue is full\n");
         return;
     }
@@ -26,7 +26,7 @@ void enqueue(Queue *q, int value) {
 }
 
 int dequeue(Queue *q) {
-    if (is_empty(q)) {
+    if (queue_is_empty(q)) {
         printf("Queue is empty\n");
         return -1;
     }
@@ -42,7 +42,7 @@ void clear_queue(Queue *q) {
 void list_queue(Queue *q) {
     printf("\n================== Current queue ==================\n");
 
-    if (is_empty(q)) {
+    if (queue_is_empty(q)) {
         printf("Queue is empty\n");
         return;
     }

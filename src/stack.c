@@ -7,27 +7,29 @@ void init_stack(Stack *s) {
     s->top = 0;
 }
 
-int is_empty(Stack *s) {
-    return s->top = 0;
+int stack_is_empty(Stack *s) {
+    return s->top == 0;
 
 }
 
-int is_full(Stack *s) {
+int stack_is_full(Stack *s) {
     return s->top == STACK_SIZE; 
 }
 
 void push(Stack *s, int value){
-    if (is_full(s)) {
+    if (stack_is_full(s)) {
         printf("Stack is full\n");
+        return;
     }
     s->data[s->top++] = value;
 }
 
 int pop(Stack *s) {
-    if (is_empty(s)) {
+    if (stack_is_empty(s)) {
         printf("Stack is empty\n");
+        return -1;
     }
-    return s->data[s->top--];
+    return s->data[--s->top];
 }
 
 void clear_stack(Stack *s) {
@@ -38,7 +40,7 @@ void clear_stack(Stack *s) {
 void list_stack(Stack *s) {
     printf("\n================== Current queue ==================\n");
 
-    if (is_empty(s)) {
+    if (stack_is_empty(s)) {
         printf("Stack is empty\n");
         return;
     }

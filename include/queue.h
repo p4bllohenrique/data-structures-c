@@ -10,8 +10,8 @@ typedef struct {
 } Queue;
 
 void init_queue(Queue *q);
-int is_empty(Queue *q);
-int is_full(Queue *q);
+int queue_is_empty(Queue *q);
+int queue_is_full(Queue *q);
 void enqueue(Queue *q, int value);
 int dequeue(Queue *q);
 void clear_queue(Queue *q);
