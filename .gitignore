@@ -1,0 +1,73 @@
+############################
+# Linguagem C
+############################
+
+# Executáveis
+a.out
+main
+*.out
+*.exe
+*.app
+
+# Arquivos objeto
+*.o
+*.obj
+
+# Arquivos de dependência
+*.d
+
+# Bibliotecas
+*.a
+*.so
+*.dll
+*.dylib
+
+############################
+# Pastas de build
+############################
+
+build/
+bin/
+output/
+dist/
+
+############################
+# Debug / profiling
+############################
+
+*.gdb
+*.stackdump
+vgcore.*
+
+############################
+# macOS
+############################
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Ícones personalizados
+Icon?
+
+# Metadados do Finder
+._*
+
+############################
+# VS Code
+############################
+
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+############################
+# Outros
+############################
+
+# Arquivos temporários
+*~
+*.swp
+*.tmp
+*.log

@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C Project",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-Wall",
+                "-Wextra",
+                "-g3",
+                "-Iinclude",
+                "src/main.c",
+                "src/queue.c",
+                "-o",
+                "src/output/main"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
