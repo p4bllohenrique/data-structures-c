@@ -146,11 +146,12 @@ Algumas das principais estruturas de dados são:
 * Grafos (Graphs)
 
 ## Arrays
-Arrays são estruturas de dados de tamho fixo pré-estabelecido que armazenam uma coleção de elementos do mesmo tipo em posições contíguas de memória, permitindo acesso rápido através de índices.
+Arrays são estruturas de dados que armazenam uma coleção de elementos do mesmo tipo em posições contíguas de memória. Eles possuem tamanho fixo, definido no momento da criação, e permitem acesso rápido a cada elemento através de índices numéricos.
 
-### Vetores (Arrays unidimensionais):
+### Vetores (Arrays unidimensionais)
+Vetores são arrays que organizam os elementos em uma sequência linear. Cada elemento é identificado por um índice único, que começa em 0 e vai até o tamanho do vetor menos 1 $(n-1)$.
 
-Armazenam uma sequência linear de elementos. Cada elemento é acessado usando um índice único começado em 0. Nesse exemplo temos um vator de 6 posiçoes e seus indícies vão de 0 á 5.
+No exemplo abaixo, temos um vetor com 6 posições, cujos índices vão de 0 a 5:
 Exemplo: 
 ```
 int vetor[6] = {2, 4, 8, 12, 16, 18}; → vetor[2] retorna 8.
@@ -158,7 +159,9 @@ int vetor[6] = {2, 4, 8, 12, 16, 18}; → vetor[2] retorna 8.
 ![alt text](.github/assets/array.png)
 ### Matrizes (Arrays multidimensionais):
 
-Armazenam dados em mais de uma dimensão, como linhas e colunas. Cada elemento é acessado usando dois ou mais índices, comecando do indice 0, 0. Nesse exemplo temos uma matriz com 4 linhas e 3 colunas que varia da posição 0, 0 a 3, 2.
+Matrizes são arrays que possuem duas ou mais dimensões, permitindo organizar os dados em linhas e colunas. Cada elemento é acessado usando múltiplos índices, que também começam em 0.
+
+No exemplo abaixo, temos uma matriz com 4 linhas e 3 colunas, cujas posições variam de 0, 0 a 3, 2:
 Exemplo: 
 ```
 int matriz[4][3] = {{10,20,30}, {40,50,60}, {70,80,90}, {100,110,120}}; → matriz[1][2] retorna 60.
@@ -170,37 +173,38 @@ Arrays permitem acesso rápido e organização sequencial, sendo fundamentais pa
 
 ---
 ## Lista Encadeada (Linked List)
-Listas encadeadas são estruturas de dados formadas por nós, onde cada nó contém um valor e um ponteiro para o próximo nó da lista.
-Elas permitem inserção e remoção de elementos de forma dinâmica, visto que, diferente dos arrays, os elementos não precisam ser realocados a cada exclusão ou insersão, necessitando apenas que o itens excluido seja desvinculado do item que contem seu endereco e esse item recebdo o endereco do proximo item (Como se fosse cortado uma corga e em seguida emendada por um no). Alem do mais, as listas encadeadas não precisa de um tamanho fixo como nos arrays, facilitando assim algoritimos onde as informações são vriadas e não há como definir previamente o tamanho.
+Listas encadeadas são estruturas de dados formadas por nós, onde cada nó contém um valor e um ponteiro para o próximo nó da lista. Diferentemente dos arrays, elas permitem a inserção e a remoção de elementos de forma dinâmica, sem a necessidade de realocar toda a estrutura. Para remover ou inserir um elemento, basta atualizar os ponteiros dos nós adjacentes, ligando-os ao próximo ou anterior nó, como se você cortasse um elo de uma corrente e depois conectasse os elos restantes novamente. Além disso, listas encadeadas não possuem tamanho fixo, o que facilita o desenvolvimento de algoritmos em que a quantidade de elementos varia e não é possível determinar previamente o tamanho.
 
-Contudo, apesar da velocidade para insercoes e delecoes, o acesso é lento, visto que a lista não pode ser acessada por indicies como em um Array, visto que os elementos não estão em um bloco coninuo de memoria como os Arrays, e a unica forma de acessar os elementos é "perguntando" cada elemento da lista onde esta a proximo elemento (cada elemento guarda o endereo do proximo elemento) sendo necessário percorrer toda a lista para chegar ao elementeo específico.
-
+Apesar da rapidez em inserções e remoções, o acesso aos elementos de uma lista encadeada é mais lento. Como os nós não estão armazenados em posições contíguas de memória, não é possível acessar um elemento diretamente por índice, como em um array. Para chegar a um elemento específico, é necessário percorrer a lista desde o início, seguindo os ponteiros de cada nó até encontrar o desejado. Dessa forma, listas encadeadas oferecem grande flexibilidade para modificações, mas o acesso direto a elementos é menos eficiente.
 
 ![alt text](.github/assets/linkedList.png)
 
 ### Resumo:
-Listas encadeadas são ideais quando o número de elementos varia constantemente, permitindo inserções e remoções eficientes, mas o acesso a elementos específicos exige percorrer a lista do início ao fim.
+Listas encadeadas são ideais para situações em que o número de elementos varia constantemente, pois permitem inserções e remoções de forma eficiente. No entanto, acessar um elemento específico exige percorrer a lista desde o início até o nó desejado, tornando o acesso mais lento que em arrays.
 
 ---
 ## Pilha (Stack)
-Pilhas são estruturas de dados que armazenam elementos seguindo o princípio **LIFO (Last In, First Out)**, ou seja, o último elemento a entrar é o primeiro a sair. Sua utilização é muito comum em sistemas que acompanham as atividades dos usuários para que elas possam ser desfeitas (CTRL + Z), onde a cada utilização os dados vão sendo armazenos um por cima do outro, de forma que o elemento inserido antes fique abaixo do inserido posteriormente, e na saida, o elemento inserido por ultimo é o primeiro a ser retornado.
+Pilhas são estruturas de dados que armazenam elementos seguindo o princípio **LIFO (Last In, First Out)**, ou seja, o último elemento a entrar é o primeiro a sair. Elas são muito utilizadas em sistemas que precisam registrar ações para que possam ser desfeitas, como no comando CTRL + Z. Nesse caso, cada nova ação é armazenada “por cima” da anterior, de forma que o elemento inserido primeiro fique na base da pilha e o mais recente fique no topo. Quando é necessário desfazer uma ação, o sistema remove primeiro o elemento do topo, que foi o último a ser inserido.
 
-Outra implementação desse conceito é no procedimento chamdao "Call Stack"(pilaha de chamadas). Para entender como a pilha de chamado funciona, imagine 3 funções (funções ou metodódos) são blocos de código reutilizáveis que executam uma determinada ação e podem ou não retornar valor. 
+Outro exemplo de aplicação das pilhas é a call stack (pilha de chamadas), usada para controlar a execução de funções em programas. Funções ou métodos são blocos de código que executam tarefas específicas e podem retornar um valor. A call stack organiza essas chamadas de modo que a função mais recentemente chamada seja concluída primeiro antes das anteriores, seguindo o mesmo princípio **LIFO** da pilha.
 
 ![alt text](.github/assets/callStack.png)
 
-Note que uma função chama a outra e sendo assi elas são armazenas na pilha de chamada, onde o metodo main() esta no começo, é sobreposto pela funcA(), essa por sua vez sobreposta pela funcB(), sobreposta por sua vez pela funcC(). Como a função funcC() não chama mais nenhuma função, ela executa por inteiro, depois a funcB(), funcA() e para finalizar o metodo main().
+Quando uma função chama outra, cada chamada é armazenada na pilha de chamadas. Por exemplo, o método main() é o primeiro a ser colocado na pilha. Em seguida, se ele chama a função funcA(), esta é adicionada por cima do main(). Se funcA() chama funcB(), funcB() é adicionada no topo, e se funcB() chama funcC(), funcC() vai para o topo da pilha.
 
+Como funcC() não chama nenhuma outra função, ela é executada completamente primeiro. Depois que funcC() termina, o controle retorna para funcB(), que continua sua execução, seguida por funcA(). Por fim, o main() retoma e conclui sua execução. Esse comportamento segue exatamente o princípio **LIFO (Last In, First Out)**, característico das pilhas.
 
-A pilha possui algumas operações básicas para a sua implementação e manipulação, são elas: 
-* Push: Adiciona um elemento no topo da pilha.
-* Pop: Remove o elemento do topo da pilha.
-* Peek/Top: Consulta o elemento que está no topo, sem removê-lo.
-* isEmpty: Verifica se a pilha está vazia.
+A pilha possui algumas operações básicas que permitem sua implementação e manipulação. Entre elas:
+* Push: adiciona um elemento no topo da pilha.
+* Pop: remove o elemento que está no topo da pilha.
+* Peek/Top: consulta qual é o elemento do topo, sem removê-lo.
+* isEmpty: verifica se a pilha está vazia.
 
 ![alt text](.github/assets/stack.png)
 
 ### Resumo: 
-Pilhas são estruturas de dados que armazenam elementos seguindo o princípio LIFO (Last In, First Out), ou seja, o último elemento inserido é o primeiro a ser removido. Elas permitem que o programador adicione elementos ao topo da pilha, remova elementos do topo e consulte o elemento do topo sem removê-lo. Pilhas podem ser implementadas usando arrays, com tamanho fixo, ou listas encadeadas, permitindo crescimento dinâmico conforme necessário. Essa estrutura é muito útil em situações como reversão de dados, avaliação de expressões matemáticas e controle de histórico de ações, como em navegadores. O acesso direto a elementos específicos não é possível sem percorrer a pilha, mas as operações principais, como inserir e remover do topo, são extremamente rápidas, com complexidade $O(1)$.
+Pilhas são estruturas de dados que armazenam elementos seguindo o princípio **LIFO (Last In, First Out)**, ou seja, o último elemento inserido é o primeiro a ser removido. Elas permitem adicionar elementos ao topo da pilha, remover elementos do topo e consultar o elemento do topo sem removê-lo. Pilhas podem ser implementadas tanto com arrays, que possuem tamanho fixo, quanto com listas encadeadas, que permitem crescimento dinâmico conforme necessário.
+
+Essa estrutura é especialmente útil em situações como reversão de dados, avaliação de expressões matemáticas e controle de histórico de ações, como em navegadores. Embora não seja possível acessar diretamente elementos específicos sem percorrer a pilha, as operações principais de inserção e remoção no topo são extremamente rápidas, com complexidade $O(1)$.
 
 ---
