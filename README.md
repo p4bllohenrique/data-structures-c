@@ -208,3 +208,25 @@ Pilhas são estruturas de dados que armazenam elementos seguindo o princípio **
 Essa estrutura é especialmente útil em situações como reversão de dados, avaliação de expressões matemáticas e controle de histórico de ações, como em navegadores. Embora não seja possível acessar diretamente elementos específicos sem percorrer a pilha, as operações principais de inserção e remoção no topo são extremamente rápidas, com complexidade $O(1)$.
 
 ---
+## Filas (Queue)
+Filas (Queue) são estruturas de dados que armazenam elementos seguindo o princípio **FIFO (First In, First Out)**, ou seja, o primeiro elemento a entrar é o primeiro a sair. Elas são muito utilizadas em situações que exigem ordem e justiça no processamento, como filas de atendimento, acesso a impressora compartilhada ou requisições em servidores. Nesse modelo, cada novo elemento é inserido no final da fila, enquanto a remoção ocorre sempre no início, fazendo com que o primeiro elemento inserido seja também o primeiro a ser removido.
+
+Um exemplo comum de aplicação das filas é o gerenciamento de tarefas em sistemas operacionais, como a fila de processos ou a fila de impressão. Nesses casos, os processos ou documentos são executados na mesma ordem em que chegam, garantindo organização e previsibilidade. Assim como nas pilhas, as filas ajudam a controlar o fluxo de dados, mas diferem por seguir o princípio FIFO, priorizando quem entrou primeiro.
+
+A fila possui algumas operações básicas que permitem sua implementação e manipulação. Entre elas:
+* Enqueue: insere (enfileira) um elemento no final da fila.
+* Dequeue: remove (desenfileira) o elemento do início da fila.
+* Head: retorna o primeiro elemento da fila, sem removê-lo.
+* Tail: retorna o último elemento da fila, sem removê-lo.
+* isEmpty: verifica se a fila está vazia.
+* isFull: verifica se a fila está cheia.
+
+![alt text](.github/assets/queue.png)
+
+### Resumo: 
+Filas são estruturas de dados que armazenam elementos seguindo o princípio **FIFO (First In, First Out)**, ou seja, o primeiro elemento inserido é o primeiro a ser removido. Elas permitem adicionar elementos ao final da fila, remover elementos do início e consultar o primeiro (e, em algumas implementações, o último) elemento sem removê-los.
+Filas podem ser implementadas tanto com arrays — geralmente na forma de arrays circulares, com tamanho fixo — quanto com listas encadeadas, que permitem crescimento dinâmico conforme necessário.
+
+Essa estrutura é especialmente útil em situações como gerenciamento de processos, filas de impressão e atendimento sequencial de requisições em sistemas. Assim como nas pilhas, não é possível acessar diretamente elementos específicos sem percorrer a fila, e as operações principais de inserção no final e remoção no início são eficientes, com complexidade $O(1)$.
+
+---
