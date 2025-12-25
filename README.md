@@ -20,7 +20,7 @@ Abaixo estão algumas das **principais** complexidades mais utilizadas no dia a 
 
 ## Modelo Gráfico Notação $Big(O)$
 
-![alt text](.github/assets/image-2.png)
+![alt text](.github/assets/bigO.png)
 
 ---
 ## Complexidade $O(1)$
@@ -128,70 +128,79 @@ Algoritmos com complexidade $O(N²)$ se tornam rapidamente inviáveis para grand
 
 ---
 # Principais Estruturas de Dados
+De forma resumida, estruturas de dados são maneiras de armazenar, organizar e manipular informações em um computador de forma eficiente, permitindo que algoritmos e sistemas funcionem com melhor desempenho.
 
-Arrays (Vetores/Matrizes): Sequência de elementos do mesmo tipo, com acesso por índice (sequencial/aleatório).
+É comum que iniciantes em Ciência da Computação, especialmente aqueles focados apenas em programação, não deem muita atenção a algoritmos e estruturas de dados. Durante o aprendizado inicial, geralmente lidamos com quantidades pequenas de dados, então a eficiência no tratamento dos dados não parece tão importante.
 
-Árvores: Estrutura hierárquica (nós e raízes), não linear (ex: Árvores Binárias, AVL).
+No entanto, ao trabalhar com grandes volumes de dados, é essencial que um programador saiba armazenar e manipular informações de forma eficiente, garantindo que o algoritmo seja rápido e faça uso adequado do hardware.
 
-Grafos: Conexões entre vértices (nós) e arestas, ideais para redes sociais, rotas (Dijkstra).
+Para avaliar e comparar essa eficiência, utiliza-se a notação Big-O, apresentada no capítulo anterior.
 
-Tabelas Hash (Hash Maps/Dicionários): Mapeiam chaves a valores para acesso rápido (O(1) em média). 
+Algumas das principais estruturas de dados são: 
+* Arrays
+* Listas encadeadas (Linked List)
+* Pilhas (Stacks)
+* Filas (Queues)
+* Árvores (Trees)
+* Tabelas Hash (Hash Tables)
+* Grafos (Graphs)
 
-### 1. Lista Encadeada (Linked List)
-Uma estrutura linear onde cada elemento (nó) contém um valor e um ponteiro para o próximo nó.
-* **Utilidade:** Ideal quando o tamanho dos dados é dinâmico e ocorrem muitas inserções/remoções, tendo em vista que esse tipo de estrutura de dados tem complexidade $O(1)$ (constante) para realizar a inserção e removções em suas extremidades, mas não sendo indicada quando o objetivos for realizar uma quantidade significativa de buscas. As buscas tem complexidade $O(n)$ (linear), visto que os elementos são acessador por "endereços" e cada elemento possui o endereço do próximo elemnto, fazendo com que seja necessário percorrer toda a lista para chegar ao item procurado.
-* **Complexidade:**
-    * Inserção/Remoção: $O(1)$ (no início) ou $O(n)$ (no fim/meio).
-    * Busca: $O(n)$.
+## Arrays
+Arrays são estruturas de dados de tamho fixo pré-estabelecido que armazenam uma coleção de elementos do mesmo tipo em posições contíguas de memória, permitindo acesso rápido através de índices.
 
-![alt text](image.png)
+### Vetores (Arrays unidimensionais):
 
+Armazenam uma sequência linear de elementos. Cada elemento é acessado usando um índice único começado em 0. Nesse exemplo temos um vator de 6 posiçoes e seus indícies vão de 0 á 5.
+Exemplo: 
+```
+int vetor[6] = {2, 4, 8, 12, 16, 18}; → vetor[2] retorna 8.
+```
+![alt text](.github/assets/array.png)
+### Matrizes (Arrays multidimensionais):
 
+Armazenam dados em mais de uma dimensão, como linhas e colunas. Cada elemento é acessado usando dois ou mais índices, comecando do indice 0, 0. Nesse exemplo temos uma matriz com 4 linhas e 3 colunas que varia da posição 0, 0 a 3, 2.
+Exemplo: 
+```
+int matriz[4][3] = {{10,20,30}, {40,50,60}, {70,80,90}, {100,110,120}}; → matriz[1][2] retorna 60.
+```
+![alt text](.github/assets/matrix.png)
 
-### 2. Pilha (Stack)
-Segue o princípio **LIFO** (*Last In, First Out*). Imagine uma pilha de pratos: você só mexe no topo.
-* **Utilidade:** Histórico de navegação, desfazer ações (Undo) e chamadas de funções no sistema.
-* **Complexidade:**
-    * Push (Inserir): $O(1)$
-    * Pop (Remover): $O(1)$
-
-![alt text](image-3.png)
-
-
-
-### 3. Fila (Queue)
-Segue o princípio **FIFO** (*First In, First Out*). O primeiro a chegar é o primeiro a ser atendido.
-* **Utilidade:** Escalonamento de processos de CPU, gerenciamento de pacotes de rede e buffers.
-* **Complexidade:**
-    * Enqueue (Entrar): $O(1)$
-    * Dequeue (Sair): $O(1)$
-
-![alt text](image-4.png)
-
-
-
-### 4. Algoritmo de Dijkstra
-Um algoritmo de busca em grafos que calcula o caminho mais curto de um nó de origem para todos os outros em um grafo com pesos positivos.
-* **Utilidade:** Roteamento de GPS (Google Maps) e protocolos de rede (OSPF).
-* **Complexidade:** $O(V^2)$ com matriz de adjacência ou $O(E \log V)$ com fila de prioridade (onde $V$ = vértices e $E$ = arestas).
-
-![alt text](image-5.png)
+### Resumo: 
+Arrays permitem acesso rápido e organização sequencial, sendo fundamentais para diversas operações em algoritmos.
 
 ---
+## Lista Encadeada (Linked List)
+Listas encadeadas são estruturas de dados formadas por nós, onde cada nó contém um valor e um ponteiro para o próximo nó da lista.
+Elas permitem inserção e remoção de elementos de forma dinâmica, visto que, diferente dos arrays, os elementos não precisam ser realocados a cada exclusão ou insersão, necessitando apenas que o itens excluido seja desvinculado do item que contem seu endereco e esse item recebdo o endereco do proximo item (Como se fosse cortado uma corga e em seguida emendada por um no). Alem do mais, as listas encadeadas não precisa de um tamanho fixo como nos arrays, facilitando assim algoritimos onde as informações são vriadas e não há como definir previamente o tamanho.
 
-## 📊 Tabela de Complexidade Big(O)
+Contudo, apesar da velocidade para insercoes e delecoes, o acesso é lento, visto que a lista não pode ser acessada por indicies como em um Array, visto que os elementos não estão em um bloco coninuo de memoria como os Arrays, e a unica forma de acessar os elementos é "perguntando" cada elemento da lista onde esta a proximo elemento (cada elemento guarda o endereo do proximo elemento) sendo necessário percorrer toda a lista para chegar ao elementeo específico.
 
-| Estrutura | Acesso | Busca | Inserção | Remoção |
-| :--- | :---: | :---: | :---: | :---: |
-| **Lista Encadeada** | $O(n)$ | $O(n)$ | $O(1)$ | $O(1)$ |
-| **Pilha** | $O(n)$ | $O(n)$ | $O(1)$ | $O(1)$ |
-| **Fila** | $O(n)$ | $O(n)$ | $O(1)$ | $O(1)$ |
+
+![alt text](.github/assets/linkedList.png)
+
+### Resumo:
+Listas encadeadas são ideais quando o número de elementos varia constantemente, permitindo inserções e remoções eficientes, mas o acesso a elementos específicos exige percorrer a lista do início ao fim.
 
 ---
+## Pilha (Stack)
+Pilhas são estruturas de dados que armazenam elementos seguindo o princípio **LIFO (Last In, First Out)**, ou seja, o último elemento a entrar é o primeiro a sair. Sua utilização é muito comum em sistemas que acompanham as atividades dos usuários para que elas possam ser desfeitas (CTRL + Z), onde a cada utilização os dados vão sendo armazenos um por cima do outro, de forma que o elemento inserido antes fique abaixo do inserido posteriormente, e na saida, o elemento inserido por ultimo é o primeiro a ser retornado.
 
-## Como Usar
+Outra implementação desse conceito é no procedimento chamdao "Call Stack"(pilaha de chamadas). Para entender como a pilha de chamado funciona, imagine 3 funções (funções ou metodódos) são blocos de código reutilizáveis que executam uma determinada ação e podem ou não retornar valor. 
 
-### Compilação
-Certifique-se de ter o GCC instalado em sua máquina:
-```bash
-gcc main.c -o data_structures
+![alt text](.github/assets/callStack.png)
+
+Note que uma função chama a outra e sendo assi elas são armazenas na pilha de chamada, onde o metodo main() esta no começo, é sobreposto pela funcA(), essa por sua vez sobreposta pela funcB(), sobreposta por sua vez pela funcC(). Como a função funcC() não chama mais nenhuma função, ela executa por inteiro, depois a funcB(), funcA() e para finalizar o metodo main().
+
+
+A pilha possui algumas operações básicas para a sua implementação e manipulação, são elas: 
+* Push: Adiciona um elemento no topo da pilha.
+* Pop: Remove o elemento do topo da pilha.
+* Peek/Top: Consulta o elemento que está no topo, sem removê-lo.
+* isEmpty: Verifica se a pilha está vazia.
+
+![alt text](.github/assets/stack.png)
+
+### Resumo: 
+Pilhas são estruturas de dados que armazenam elementos seguindo o princípio LIFO (Last In, First Out), ou seja, o último elemento inserido é o primeiro a ser removido. Elas permitem que o programador adicione elementos ao topo da pilha, remova elementos do topo e consulte o elemento do topo sem removê-lo. Pilhas podem ser implementadas usando arrays, com tamanho fixo, ou listas encadeadas, permitindo crescimento dinâmico conforme necessário. Essa estrutura é muito útil em situações como reversão de dados, avaliação de expressões matemáticas e controle de histórico de ações, como em navegadores. O acesso direto a elementos específicos não é possível sem percorrer a pilha, mas as operações principais, como inserir e remover do topo, são extremamente rápidas, com complexidade $O(1)$.
+
+---
