@@ -230,3 +230,35 @@ Filas podem ser implementadas tanto com arrays — geralmente na forma de arrays
 Essa estrutura é especialmente útil em situações como gerenciamento de processos, filas de impressão e atendimento sequencial de requisições em sistemas. Assim como nas pilhas, não é possível acessar diretamente elementos específicos sem percorrer a fila, e as operações principais de inserção no final e remoção no início são eficientes, com complexidade $O(1)$.
 
 ---
+## Árvores (Trees)
+Estruturas de dados do tipo árvore são utilizadas para organizar informações de forma hierárquica, permitindo representar relações entre elementos em diferentes níveis. Esse tipo de estrutura possui um nó raiz, que ocupa a posição superior, a partir do qual surgem nós descendentes distribuídos em camadas inferiores, formando ramificações.
+
+Existem diversos tipos de árvores, como árvores binárias de busca, árvores AVL e árvores B, cada uma com características próprias e finalidades específicas. Em uma árvore binária de busca, por exemplo, cada nó pode possuir no máximo dois filhos, o que favorece a realização de buscas eficientes em grandes conjuntos de dados.
+
+As árvores são amplamente aplicadas na representação de hierarquias, como organogramas, sistemas de arquivos, estruturas de nomes de domínio (DNS), mecanismos de indexação em bancos de dados e árvores de decisão utilizadas em algoritmos de aprendizado de máquina.
+
+![alt text](.github/assets/trees.png)
+
+---
+## Grafos (Graphs)
+A estrutura de dados do tipo grafo é utilizada para representar relações entre diferentes elementos por meio de vértices e arestas. Os vértices correspondem aos objetos ou entidades do conjunto de dados, enquanto as arestas indicam as conexões ou relações existentes entre eles.
+Como exemplo, em um mapa, as cidades podem ser representadas como vértices, e as estradas que ligam essas cidades funcionam como arestas. Em redes sociais, como o Facebook, cada usuário pode ser visto como um vértice, e as amizades entre eles são representadas pelas arestas.
+
+Grafos são amplamente empregados em cenários que envolvem redes complexas de relacionamentos, sendo frequentemente combinados com algoritmos de busca. Entre os mais comuns estão a busca em largura (BFS), que explora os dados nível por nível, e a busca em profundidade (DFS), que percorre os caminhos aprofundando-se em cada ramificação para localizar informações específicas.
+
+![alt text](.github/assets/graphs.png)
+
+---
+## Tabelas Hash (Hash Tables)
+
+Uma estrutura de dados de hash, às vezes chamada de "tabela de hash" ou "mapa de hash", usa uma função de hash para armazenar valores de dados. A função de hash cria um hash, que é uma chave digital exclusiva que corresponde à localização de um valor de dados específico na memória.
+
+A tabela de hash contém um índice pesquisável de cada par de valores de hash e dados, o que facilita e agiliza o acesso, a adição e a remoção de dados da tabela.
+
+Usos: estruturas de dados de hash podem ajudar a recuperar rapidamente dados de listas telefônicas, dicionários e diretórios de pessoal. Podem também ser usados para indexar bancos de dados, armazenar senhas e equilibrar a carga de sistemas de TI.
+
+Exemplo: uma versão simplificada de uma tabela de hash que organiza a lista de contatos de um smartphone pode ter a seguinte aparência:
+
+![alt text](.github/assets/hashTable.png)
+
+---
